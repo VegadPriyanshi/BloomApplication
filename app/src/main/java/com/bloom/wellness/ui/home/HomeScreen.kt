@@ -81,8 +81,22 @@ import com.bloom.wellness.ui.theme.BloomTextSecondary
 import com.bloom.wellness.ui.theme.BloomTipBg
 import com.bloom.wellness.ui.theme.BloomTipBrown
 import com.bloom.wellness.ui.theme.BloomTipDoneGreen
+import java.util.Calendar
 
 import androidx.compose.material3.ExperimentalMaterial3Api
+
+
+private fun getGreeting(): String {
+    val hour = Calendar.getInstance()
+        .get(Calendar.HOUR_OF_DAY)
+
+    return when (hour) {
+        in 5..11 -> "GOOD MORNING,"
+        in 12..16 -> "GOOD AFTERNOON,"
+        in 17..20 -> "GOOD EVENING,"
+        else -> "GOOD NIGHT,"
+    }
+}
 
 enum class HomeSheetType {
     MEALS,
@@ -137,7 +151,7 @@ fun HomeScreen(
         ) {
             Column {
                 Text(
-                    text = "GOOD MORNING,",
+                    text = getGreeting(),
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Bold,
                     letterSpacing = 1.2.sp,

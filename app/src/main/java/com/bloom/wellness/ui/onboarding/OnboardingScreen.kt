@@ -61,6 +61,8 @@ import com.bloom.wellness.ui.theme.BloomTerracotta
 import com.bloom.wellness.ui.theme.BloomTerracottaLight
 import com.bloom.wellness.ui.theme.BloomTextPrimary
 import com.bloom.wellness.ui.theme.BloomTextSecondary
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.imePadding
 
 /**
  * Exact Figma Onboarding Screen with Steps 1, 2, 3, and 4.
@@ -81,8 +83,10 @@ fun OnboardingScreen(
             .fillMaxSize()
             .background(BloomCreamBg)
             .statusBarsPadding()
+            .navigationBarsPadding()
+            .imePadding()
             .padding(horizontal = 24.dp, vertical = 12.dp)
-    ) {
+    )  {
         // Top Navigation Bar: Back button (on steps > 1) + 4-segment progress bar
         Row(
             modifier = Modifier
